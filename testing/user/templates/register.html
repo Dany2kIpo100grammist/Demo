@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/auth_globals.css' %}">
+{% endblock css %}
+
+{% block main %}
+    {% comment %} <div class="box">
+        <p>Ну давай регаца</p>
+        <input type="test">
+        <input type="password" style="top:10.3rem !important;">
+        <button type="submit">Ну тип ехало</button>
+    </div> {% endcomment %}
+
+    <form action="{% url "user:register" %}" method="POST" class="box">
+        <label for="login_label">Ну давай регаца</label>
+
+        {% csrf_token %}
+
+        <div class="inputs-container">
+
+            {% for form in form %}
+                {% include "components/formField.html" with form=form exception_fields=exception_fields %}
+            {% endfor %}
+
+        </div>
+
+        <button type="submit">Ну тип ехало</button>
+    </form>
+{% endblock main %} 

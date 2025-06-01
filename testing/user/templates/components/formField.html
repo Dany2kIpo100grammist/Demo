@@ -1,0 +1,36 @@
+{% load contains %}
+{% load static %}
+
+{% if exception_fields|contains:form.name %}
+
+{% else %}
+    <div class="input">
+        {% if form.field.widget.input_type == "checkbox" %}
+        
+            {{ form }}
+
+            {% if form.errors %}
+                {% for error in form.errors %}
+                    <label class="error">{{ error }}</label>
+                {% endfor %}
+            {% else %}
+                <label for="{{ form.id_for_label }}">{{form.label}}</label>
+            {% endif %}
+
+        {% else %}
+        
+            {% if form.errors %}
+                {% for error in form.errors %}
+                    <label class="error">{{ error }}</label>
+                {% endfor %}
+            {% else %}
+                <label for="{{ form.id_for_label }}">{{form.label}}</label>
+            {% endif %}
+
+            {{ form }}
+
+        {% endif %}
+        
+    </div>
+{% endif %}
+

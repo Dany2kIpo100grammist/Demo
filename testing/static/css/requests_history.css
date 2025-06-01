@@ -1,0 +1,45 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.items-box {
+    width: 80%;
+    height: 80%;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.request-card {
+    padding: 2.5rem;
+    background-color: white;
+    color: black;
+
+    width: 10rem;
+    height: fit-content;
+
+    border-radius: 32px;
+}
+
+.status {
+    position: relative;
+    margin-top: 1.25rem;
+    left: 25%;
+
+    font-size: 1.15rem;
+}
+
+.new {
+    color: black;
+}
+
+.done {
+    color: green;
+}
+
+.cancelled {
+    color: red;
+}

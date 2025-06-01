@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/mainpage.css' %}">
+{% endblock css %}
+
+{% block main %}
+
+    <main>
+        <div class="navigation-box">
+            <a href="{% url "user:login" %}"><button>На страницу логина</button></a>
+            <a href="{% url "user:register" %}"><button>На страницу регистрации</button></a>
+        </div>
+        <div class="navigation-box">
+            <a href="{% url "user:requests" %}"><button>Создать заявку</button></a>
+            <a href="{% url "user:requests_history" %}"><button>Посмотреть историю заявок</button></a>
+        </div>
+    </main>
+
+    
+{% endblock main %}

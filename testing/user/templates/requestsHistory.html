@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% load format_russian_number %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/requests_history.css' %}">
+{% endblock css %}
+
+{% block main %}
+    <div class="items-box">
+
+        {% for item in requests %}
+            <div class="request-card">
+                <h1>{{item.service}}</h1>
+                <p>ФИО заявителя: {{item.user.fio}}</p>
+                <p>Номер телефона: {{item.phonenumber|format_russian_number}}</p>
+                <p>Адрес: {{item.address}}</p>
+                <p>Тип оплаты: {{item.get_payType_display}}</p>
+                <p class="status {{item.status}}">{{item.get_status_display}}</p>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock main %}

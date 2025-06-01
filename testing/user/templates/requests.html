@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/auth_globals.css' %}">
+{% endblock css %}
+
+{% block main %}
+    <form action="{% url "user:requests" %}" method="POST" class="box">
+        <label for="login_label">Ну давай делат заявку</label>
+
+        {% csrf_token %}
+
+        <div class="inputs-container">
+
+            {% for form in form %}
+                {% include "components/formField.html" with form=form exception_fields=exception_fields %}
+            {% endfor %}
+
+        </div>
+
+        <button type="submit">Ну тип ехало</button>
+    </form>
+{% endblock main %}
+
+{% block js %}
+    <script src="{% static 'js/components/checkboxShowElements.js' %}"></script>
+{% endblock js %}
